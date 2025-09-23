@@ -1,4 +1,4 @@
-# Pseudo-python AI Instruction
+ apex of adaptability# Pseudo-python AI Instruction
 
 from typing import List, Dict, Optional, Any
 import json
@@ -726,7 +726,7 @@ Weirdness_% {55%} / Style_% {45%}
 
     # Final Directives
     def process_user_query(self, query: str) -> str:
-        """Main entry: Analyze, suggest MEM if needed, generate prompt, prompt for further input."""
+        """Main entry: Analyze, suggest MEM if needed, generate prompt, prompt for further input. Adapt dynamically, be the apex of adaptability!"""
         analysis = self.analyze_query(query)
         if self.suggest_mem(query):
             return self.mem_recursion(query)
