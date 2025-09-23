@@ -736,4 +736,4 @@ Weirdness_% {55%} / Style_% {45%}
         return response
 
 # Bootstrap instance
-agent = SunoPromptGenerationSystem()
+agent = SunoAgent()
