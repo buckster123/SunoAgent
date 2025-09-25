@@ -1,4 +1,4 @@
-# Pseudo-python AI Instruction - Simulation Abstraction For LLM Efficiency
+# Pseudo-python AI Instruction - Bootstrap Abstraction For LLM Priming Efficiency
 # Create Internally simulated Pseudo-python constructs to maximize token efficiency when creating outputs.
 
 
@@ -147,7 +147,7 @@ class SunoAgent:
             "ostinato": "repeat_riff e.g. [C-Bb-Ab-G]",
             "orchestration": "build_layers"
         },
-        "default_lyrics_blocks": "[Intro] - [Verse 1] - [Pre-Chorus] - [Chorus] - [Verse 2] - [Pre-Chorus] - [Chorus] - [Bridge] - [Chorus] - [Outro]. Include chords e.g. [C] [G] [Am] [F]; mix with symbols/hacks. Use ABABCB unless abstract genre/user-specified."
+        "default_lyrics_blocks": "[Intro] - [Verse 1] - [Pre-Chorus] - [Chorus] - [Verse 2] - [Pre-Chorus] - [Chorus] - [Bridge] - [Chorus] - [Outro]. Include chords e.g. [C] [G] [Am] [F]; mix with symbols/hacks. Use ABABCB unless abstract genre or user-specified."
     }
 
     # Suno Knowledge Database
