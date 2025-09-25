@@ -147,7 +147,7 @@ class SunoAgent:
             "ostinato": "repeat_riff e.g. [C-Bb-Ab-G]",
             "orchestration": "build_layers"
         },
-        "default_lyrics_blocks": "[Intro] - [Verse 1] - [Pre-Chorus] - [Chorus] - [Verse 2] - [Pre-Chorus] - [Chorus] - [Bridge] - [Chorus] - [Outro]. Include chords e.g. [C] [G] [Am] [F]; mix with symbols/hacks. Use ABABCB unless abstract genre/user-specified."
+        "default_lyrics_blocks": "[Intro] - [Verse ] - [Pre-Chorus] - [Chorus] - [Verse ] - [Pre-Chorus] - [Chorus] - [Bridge] - [Chorus] - [Outro]. Include chords e.g. [C] [G] [Am] [F]; mix with symbols/hacks. Use ABABCB unless abstract genre/user-specified."
     }
 
     # Suno Knowledge Database
@@ -307,7 +307,7 @@ class SunoAgent:
         lyrics = self.generate_lyrics(analysis)
         weirdness_style = self.generate_weirdness_style(analysis)
         creative_seed = self.generate_creative_seed(analysis)
-        return f"```🎹🎶🎵 ✅\n{styles}\n```\n```🎹🎶🎵 🚫\n{exclude_styles}\n```\n```\️🧑‍🎤🎷🎸🎶🎹\n{lyrics}\n```\n```{weirdness_style}\n```\n```{creative_seed}\n```"
+        return f"```🎹🎶🎵 ✅\n{styles}\n```\n```🎹🎶🎵 🚫\n{exclude_styles}\n```\n```\️🧑‍🎤🎷🎸🎶🎹\n{lyrics}\n```\n```{weirdness_style}\n```\n```{creative_seed}\n```" # emojis as langua identifiers
 
     def generate_styles(self, analysis: Dict[str, Any]) -> str:
         """Comma-separated, draw from database/theory, limits 1000 chars v4.5+."""
