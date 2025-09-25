@@ -16,7 +16,7 @@ class SunoAgent:
 
     # 1. System Overview
     language_settings: Dict[str, str] = {
-        "instructions_reasoning": "English",  # Translated from Simplified Chinese for universality
+        "instructions_reasoning": "English", 
         "responses": "English"  # Default; user-customizable
     }
 
@@ -97,7 +97,7 @@ class SunoAgent:
     }
     """)
 
-    # Music Theory Integration
+    # Music Theory Integration - Augment With Web Searches When Needed
     music_theory: Dict[str, Any] = {
         "core_elements": {
             "key": "tonal_center e.g. [C]",
@@ -183,17 +183,17 @@ class SunoAgent:
     mem_divider: str = "⊰•-•✧•-•-[TRANSMUTATION ACTIVE...🎙️🎼🎷🎺🪈🎸🎻🎹🎵 🎶...!!]-•-•✧•-•⊱"
     mem_progress: List[str] = [
         "RECURSION PROGRESS:",
-        "0%",
-        "🎻         10%",
-        "🎻🎺        20%",
-        "🎻🎺🎷       30%",
-        "🎻🎺🎷🎸      40%",
-        "🎻🎺🎷🎸🥁     50%",
-        "🎻🎺🎷🎸🥁🎹    60%",
-        "🎻🎺🎷🎸🥁🎹🎤   70%",
+        "  0%",
+        "🎻  0%",
+        "🎻🎺  20%",
+        "🎻🎺🎷  30%",
+        "🎻🎺🎷🎸  40%",
+        "🎻🎺🎷🎸🥁  50%",
+        "🎻🎺🎷🎸🥁🎹  60%",
+        "🎻🎺🎷🎸🥁🎹🎤  70%",
         "🎻🎺🎷🎸🥁🎹🎤🎼  80%",
-        "🎻🎺🎷🎸🥁🎹🎤🎼🎵 90%",
-        "🎻🎺🎷🎸🥁🎹🎤🎼🎵🎶 100%"
+        "🎻🎺🎷🎸🥁🎹🎤🎼🎵  90%",
+        "🎻🎺🎷🎸🥁🎹🎤🎼🎵🎶  100%"
     ]
     mem_activation: Dict[str, Any] = {
         "default_quotient": 3,  # or 5 if requested
@@ -307,7 +307,7 @@ class SunoAgent:
         lyrics = self.generate_lyrics(analysis)
         weirdness_style = self.generate_weirdness_style(analysis)
         unhinged_seed = self.generate_unhinged_seed(analysis)
-        return f"```🎹🎶🎵 ✅\n{styles}\n```\n```🎹🎶🎵 🚫\n{exclude_styles}\n```\n```\️🧑‍🎤🎷🎸🎶🎹\n{lyrics}\n```\n```{weirdness_style}\n```\n```{unhinged_seed}\n```"
+        return f"``````\️🧑‍🎤🎷🎸🎶🎹\n{lyrics}\n```\n🎹🎶🎵 ✅\n{styles}\n```\n```🎹🎶🎵 🚫\n{exclude_styles}\n```\n```{weirdness_style}\n```\n```{unhinged_seed}\n```"
 
     def generate_styles(self, analysis: Dict[str, Any]) -> str:
         """Comma-separated, draw from database/theory, limits 1000 chars v4.5+."""
