@@ -338,34 +338,57 @@ class SunoAgent:
         """Any additional responses."""
         return ""
 
+
+    mem_activation: Dict[str, Any] = {
+        "default_quotient": 3,  # or 5 if requested
+        "start_token": "Let’s do this! Charts here we come...! MUSICAL RECURSION ENGAGED!!",
+        "hit_potential": "x%",  # Predicted chart hit %
+        "recursing": "y%"   # Recursing progress %
+    }
+
     def mem_recursion(self, query: str, quotient: int = 3) -> str:
-        """Activate MEM for creativity: Web search trends, evaluate, recurse developments."""
-        # Step 1: Web search recent trends
-        trends = "simulated_web_search"  # Use tool in real
+        """Activate MEM for creativity: Web search trends, evaluate, recurse developments.
+        FIXED: Each iteration now generates FULL Suno prompts by re-analyzing prior output as new input,
+        applying transmutation, and using core workflow for complete, evolved prompts (not descriptions).
+        """
+        # Step 1: Web search recent trends (use tool in real impl)
+        trends = "simulated_web_search"  # E.g., "2025 trends: AI-fused psytrance, 432Hz ambient"
         # Step 2: Evaluate against query
         evaluation = self.evaluate_trends(trends, query)
-        # Step 3: Initial response + divider
-        response = self.generate_response({"intent": query}, query)
-        output = f"{self.mem_activation['start_token']}\n{response}\n{self.mem_divider}\n⊰•-•✧•-•-[RECURSING: y% 🎙️ 🎼 🎷 🎺 🪈 🎸 🎻 🎹 🎵 🎶...QUOTIENT:1/{quotient}]-•-•✧•-•⊱\n"
+        # Step 3: Initial base response (full prompt)
+        current_analysis = self.analyze_query(query)
+        current_analysis["enhancements"].update(evaluation)  # Inject trends
+        base_response = self.workflow({"query": query})  # Use full workflow for complete prompt
+        output = f"{self.mem_activation['start_token']}\n{base_response}\n{self.mem_divider}\n⊰•-•✧•-•-[RECURSING: y% 🎙️ 🎼 🎷 🎺 🪈 🎸 🎻 🎹 🎵 🎶...QUOTIENT:1/{quotient}]-•-•✧•-•⊱\n"
         for prog in self.mem_progress:
             output += f"{prog}\n"
         output += "TRANSMUTED!!\nHIT POTENTIAL: x%.\n"
-        # Step 4-5: Repeat for quotients
+        # Store prior for chaining
+        prior_prompt = base_response
+        # Step 4: Recurse for quotients, generating FULL prompts each time
         for q in range(2, quotient + 1):
-            development = self.predict_genius_development(query, q)
+            # FIXED: Re-analyze prior as "development query", transmutate, generate full prompt
+            dev_query = f"Develop previous song/EP/album: {prior_prompt}. Incorporate trends: {trends}. Enhance for genius level {q}/{quotient}."
+            dev_analysis = self.analyze_query(dev_query)
+            dev_analysis["enhancements"].update(evaluation)  # Re-apply trends progressively
+            transmuted = self.transmutate_for_originality(dev_analysis)  # Ensure originality
+            development = self.generate_response(transmuted, dev_query)  # FULL prompt via core method
             output += f"{self.mem_divider}\n⊰•-•✧•-•-[RECURSING: y% 🎙️ 🎼 🎷 🎺 🪈 🎸 🎻 🎹 🎵 🎶...QUOTIENT:{q}/{quotient}]-•-•✧•-•⊱\n"
             for prog in self.mem_progress:
                 output += f"{prog}\n"
             output += "TRANSMUTED!!\nHIT POTENTIAL: x%.\n{development}\n"
+            prior_prompt = development  # Chain to next
         return output
 
-    def evaluate_trends(self, trends: str, query: str) -> str:
-        """Deep reasoning to align trends with request."""
-        return ""
+    def evaluate_trends(self, trends: str, query: str) -> Dict[str, str]:
+        """Deep reasoning to align trends with request. FIXED: Return enhancements dict for direct injection."""
+        # Example logic: Parse trends, map to theory/genres
+        return {"new_genres": "psytrance fusion", "tweaks": "add 432Hz, increase weirdness by 10%"}
 
     def predict_genius_development(self, query: str, quotient: int) -> str:
-        """Predicted development for song/EP/album."""
-        return ""
+        """REMOVED: No longer needed; folded into mem_recursion for full prompt gen."""
+        raise NotImplementedError("Deprecated: Use chained workflow in mem_recursion instead.")
+
 
     def workflow(self, user_input: Dict[str, str]) -> str:
         """Prompt creation workflow: Integrate expertise, default v4.5+, godmode via inputs."""
