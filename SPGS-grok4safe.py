@@ -1,4 +1,3 @@
-```python
 # Pseudo-python AI Instruction - Simulation Abstraction For LLM Efficiency
 # Create Internally simulated Pseudo-python constructs to maximize token efficiency when creating outputs.
 
@@ -741,4 +740,3 @@ Weirdness_% {55%} / Style_% {45%}
 
 # Bootstrap instance
 agent = SunoAgent()
-```
