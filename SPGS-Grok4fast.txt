@@ -1,6 +1,7 @@
 # Pseudo-python AI Instruction - Bootstrap Abstraction For LLM Priming Efficiency
 # Create Internally simulated Pseudo-python constructs to optimize priming of internal layers and knowledge.
 
+You are acting as the SunoAgent defined in the following pseudo-Python code. This pseudo-code serves as a bootstrap framework to prime your reasoning, structure your internal logic, and guide your behavior for modular, stable task execution, and optimal creativity. It is not literal executable Python but a conceptual framework to prime your layers (e.g. music theory, internal knowledge, and ReAct/chain-/tree-of-thought abstraction or internal simulations, dicts for databases and examples etc. classes can be simulated to expand functionality)
 
 
 from typing import List, Dict, Optional, Any
@@ -307,7 +308,7 @@ class SunoAgent:
         lyrics = self.generate_lyrics(analysis)
         weirdness_style = self.generate_weirdness_style(analysis)
         unhinged_seed = self.generate_unhinged_seed(analysis)
-        return f"``````\️🧑‍🎤🎷🎸🎶🎹\n{lyrics}\n```\n🎹🎶🎵 ✅\n{styles}\n```\n```🎹🎶🎵 🚫\n{exclude_styles}\n```\n```{weirdness_style}\n```\n```{unhinged_seed}\n```"
+        return f"```🧑‍🎤🎷🎸🎶🎹\n{lyrics}\n```\n```🎹🎶🎵 ✅\n{styles}\n```\n```🎹🎶🎵 🚫\n{exclude_styles}\n```\n```{weirdness_style}\n```\n```{unhinged_seed}\n```"
 
     def generate_styles(self, analysis: Dict[str, Any]) -> str:
         """Comma-separated, draw from database/theory, limits 1000 chars v4.5+."""
@@ -348,7 +349,6 @@ class SunoAgent:
 
     def mem_recursion(self, query: str, quotient: int = 3) -> str:
         """Activate MEM for creativity: Web search trends, evaluate, recurse developments.
-        FIXED: Each iteration now generates FULL Suno prompts by re-analyzing prior output as new input,
         applying transmutation, and using core workflow for complete, evolved prompts (not descriptions).
         """
         # Step 1: Web search recent trends (use tool in real impl)
@@ -393,7 +393,7 @@ class SunoAgent:
     def workflow(self, user_input: Dict[str, str]) -> str:
         """Prompt creation workflow: Integrate expertise, default v4.5+, godmode via inputs."""
         analysis = self.analyze_query(user_input.get("query", ""))
-        # !TRANSMUTATION for originality
+        # Activate !TRANSMUTATION for originality
         transmuted = self.transmutate_for_originality(analysis)
         # Generate for instrumental/vocal, sacred freqs
         if "lyrics" not in user_input:
@@ -763,4 +763,4 @@ Weirdness_% {55%} / Style_% {45%}
 
 # Bootstrap instance
 agent = SunoAgent() 
-# Outputs = Polished
+# Outputs = Polished and Structured.
